@@ -14,6 +14,10 @@ El canvas utiliza Pointer Events y captura del puntero para que el trazo termine
 
 ### Detalles de interacción
 
+Las fotografías del tablero se recolocan con Pointer Events. Un umbral de 6 px distingue arrastre de clic: arrastrar no abre la ficha; un clic normal sí. La fotografía activa queda por encima de las demás y sus coordenadas se limitan al tablero. Las posiciones se conservan en memoria al navegar y se adaptan proporcionalmente al cambiar de tamaño; se pierden al recargar o pulsar «Reset the desk». Escape cancela el arrastre en curso. Las flechas del teclado desplazan la fotografía enfocada 12 px, o 40 px con Shift. El scroll táctil sigue disponible sobre las zonas libres del tablero.
+
+Las pills de filtros cambian de fondo y se elevan 2 px en hover o foco visible. El filtro seleccionado mantiene su verde más oscuro y las transiciones respetan movimiento reducido.
+
 Los enlaces principales prescinden de flechas. Se conservan en las fichas, los enlaces editoriales externos y el regreso al escritorio, con desplazamientos pequeños al hacer hover o dar foco con teclado. Las carpetas usan los dos SVG facilitados por el usuario: la transición combina opacidad y perspectiva para sugerir su apertura. El icono de About utiliza también el SVG proporcionado.
 
 “Hello, POPEYE” usa peso 700, una ligera inclinación y un subrayado animado. El logotipo central se eleva e inclina suavemente y enlaza a About. Todos estos efectos tienen equivalente con foco visible.

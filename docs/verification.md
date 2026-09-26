@@ -17,6 +17,8 @@ Revisión realizada en el navegador integrado de Codex (Chromium), con viewport 
 - Ajuste del espacio entre enlaces manuscritos y fotografías inferiores tras inspección visual.
 - Retoques de navegación: SVG de carpeta y bombilla, enlaces sin flechas y “Hello, POPEYE” en negrita.
 - Borrado: un trazo activa `is-erasing` al pulsar Clear; al terminar se muestra el bloc vacío y el botón vuelve a estar disponible.
+- Tablero: arrastre de la foto de la colección sin apertura de diálogo, clic posterior con apertura, persistencia al ir a Editions y volver, desplazamiento de 12 px con ArrowRight y restablecimiento con Reset the desk.
+- Filtros: foco de teclado en Fashion muestra el fondo verde claro y desplazamiento vertical de −2 px, compartidos con hover.
 
 ## Comprobaciones para futuros cambios
 

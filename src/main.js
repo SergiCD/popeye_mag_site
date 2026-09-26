@@ -1,12 +1,16 @@
 import { issues } from "./issues.js";
+import { mountDesk } from "./desk.js";
 
 const content = document.querySelector("#content");
 const dialog = document.querySelector("#issue-dialog");
+let unmountDesk = () => {};
 const photo = (cls, image, title, issue, caption) =>
-  `<button class="polaroid ${cls}" data-issue="${issue}" aria-label="Open ${title}"><img src="/public/images/${image}" alt="${title}" /><span>${caption}</span></button>`;
+  `<button class="polaroid ${cls}" data-position="${cls}" data-issue="${issue}" aria-label="Open ${title}" aria-describedby="desk-instructions"><img src="/public/images/${image}" alt="${title}" draggable="false" /><span>${caption}</span></button>`;
 
 function home() {
   return `<section class="desk" aria-label="POPEYE editorial desk">
+    <p id="desk-instructions" class="visually-hidden">Drag the photos to rearrange the desk. With a photo focused, use arrow keys to move it, Shift for larger steps, or Enter to open it.</p>
+    <button class="reset-desk" type="button">Reset the desk</button>
     <span class="desk-edition">THE CITY BOY’S DESK — TOKYO, JAPAN</span>
     ${photo("tokyo", "issue-937.jpg", "POPEYE issue 937: Hello, Tokyo!", "937", "a day in Tokyo, 2025")}
     ${photo("travel", "issue-928.jpg", "POPEYE issue 928: tropical Asia", "928", "somewhere in Asia")}
@@ -34,6 +38,7 @@ function about() {
 }
 
 function render() {
+  unmountDesk();
   const requestedRoute = location.hash.slice(1) || "home";
   const route = requestedRoute === "issues" ? "editions" : requestedRoute;
   content.innerHTML =
@@ -44,6 +49,7 @@ function render() {
         : route === "about"
           ? about()
           : home();
+  unmountDesk = mountDesk(content.querySelector(".desk"));
   document
     .querySelectorAll("nav a")
     .forEach((a) =>

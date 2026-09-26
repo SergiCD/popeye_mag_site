@@ -312,6 +312,10 @@ a:is(:hover, :focus-visible) .arrow-up {
   writing-mode: vertical-rl;
 }
 .polaroid {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
   position: absolute;
   padding: 7px 7px 0;
   background: #fffef6;
@@ -339,6 +343,37 @@ a:is(:hover, :focus-visible) .arrow-up {
   transform: rotate(0) scale(1.06);
   box-shadow: 2px 14px 24px #102c4a55;
   z-index: 4;
+}
+.polaroid.is-dragging {
+  cursor: grabbing;
+  transform: rotate(0) scale(1.035);
+  box-shadow: 3px 18px 28px #102c4a55;
+  transition: none;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.reset-desk {
+  position: absolute;
+  bottom: 13px;
+  right: 15px;
+  z-index: 3;
+  padding: 5px 8px;
+  color: #fffef3;
+  background: #24493e;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background 0.25s;
+}
+.reset-desk:is(:hover, :focus-visible) {
+  background: #17372f;
 }
 .tokyo {
   left: 6.5%;
@@ -543,10 +578,27 @@ footer > a:last-child {
   border-radius: 30px;
   padding: 7px 17px;
   font-size: 17px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.filters button:is(:hover, :focus-visible) {
+  background: #dce7dd;
+  color: #234f3c;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px #315b5114;
+}
+.filters button:active {
+  transform: translateY(0);
 }
 .filters button[aria-pressed="true"] {
   background: var(--green);
   color: white;
+}
+.filters button[aria-pressed="true"]:is(:hover, :focus-visible) {
+  background: #23473e;
 }
 .issue-grid {
   display: grid;
