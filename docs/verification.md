@@ -11,7 +11,7 @@
 Revisión realizada en el navegador integrado de Codex (Chromium), con viewport de escritorio y móvil de 390 × 844:
 
 - Inicio: composición visible y todas las imágenes cargadas.
-- Archivo: navegación desde la cabecera y filtro Travel mostrando únicamente el número 928.
+- Archivo: navegación desde la cabecera y filtro Travel mostrando únicamente el número 928. Editions contiene seis números; Fashion contiene tres y Interiors uno.
 - Ficha: contenido del número seleccionado y cierre mediante Escape.
 - Móvil: ancho del documento igual al viewport, sin scroll horizontal.
 - Ajuste del espacio entre enlaces manuscritos y fotografías inferiores tras inspección visual.
