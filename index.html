@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#315b51" />
-    <meta name="description" content="An independent scrapbook celebrating POPEYE, Magazine for City Boys. Explore Tokyo, travel and the art of everyday living." />
+    <meta
+      name="description"
+      content="An independent scrapbook celebrating POPEYE, Magazine for City Boys. Explore Tokyo, travel and the art of everyday living."
+    />
     <title>POPEYE — Magazine for City Boys</title>
     <link rel="icon" href="/public/images/popeye-logo.png" />
     <link rel="stylesheet" href="/src/style.css" />
@@ -13,25 +16,71 @@
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
     <aside class="sidebar">
-      <a class="brand" href="#home" aria-label="POPEYE home"><img src="/public/images/popeye-logo.png" alt="POPEYE" width="2204" height="713" /><span>Magazine for City Boys</span></a>
-      <p class="intro">Hello, city boy! A magazine about finding your own style. Clothes, cities, good food, and the little things that make everyday life interesting.</p>
+      <a class="brand" href="#home" aria-label="POPEYE home"
+        ><img
+          src="/public/images/popeye-logo.png"
+          alt="POPEYE"
+          width="2204"
+          height="713"
+        /><span>Magazine for City Boys</span></a
+      >
+      <p class="intro">
+        Hello, city boy! A magazine about finding your own style. Clothes,
+        cities, good food, and the little things that make everyday life
+        interesting.
+      </p>
       <section class="drawing-pad" aria-label="Drawing pad">
-        <div class="pad-header"><span>A little room for your ideas.</span><button id="clear-drawing" aria-label="Clear drawing">Clear ↺</button></div>
+        <div class="pad-header">
+          <span>A little room for your ideas.</span
+          ><button id="clear-drawing" aria-label="Clear drawing">
+            Clear ↺
+          </button>
+        </div>
         <canvas id="sketch" aria-label="Draw here using your pointer"></canvas>
         <span class="pad-hint">make yourself at home ✎</span>
       </section>
       <div class="sidebar-bottom">
-        <a class="official" href="https://popeyemagazine.jp/" target="_blank" rel="noopener noreferrer">EXPLORE THE POPEYE WORLD ↗</a>
-        <nav aria-label="Sidebar"><a href="#issues">📁 Issues ↗</a><a href="#scrapbook">📁 Scrapbook ↗</a></nav>
-        <div class="social"><a href="https://www.instagram.com/popeye_magazine_official/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#about">About this archive ↗</a></div>
+        <a
+          class="official"
+          href="https://popeyemagazine.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >EXPLORE THE POPEYE WORLD ↗</a
+        >
+        <nav aria-label="Sidebar">
+          <a href="#issues">📁 Issues ↗</a
+          ><a href="#scrapbook">📁 Scrapbook ↗</a>
+        </nav>
+        <div class="social">
+          <a
+            href="https://www.instagram.com/popeye_magazine_official/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram ↗</a
+          ><a href="#about">About this archive ↗</a>
+        </div>
         <p class="credit">An independent tribute. Made for the curious.</p>
       </div>
     </aside>
     <div class="main-shell">
-      <header><nav aria-label="Main navigation"><a href="#issues">📁 Issues</a><a href="#home">👋 Hello, POPEYE</a><a href="#about">💡 About</a></nav></header>
+      <header>
+        <nav aria-label="Main navigation">
+          <a href="#issues">📁 Issues</a><a href="#home">👋 Hello, POPEYE</a
+          ><a href="#about">💡 About</a>
+        </nav>
+      </header>
       <main id="content" tabindex="-1"></main>
-      <footer><a href="#home">POPEYE</a><span>Magazine for City Boys<br>Independent fan project · 2026</span><a href="#home" aria-label="Back to home">Back to the desk ↑</a></footer>
+      <footer>
+        <a href="#home">POPEYE</a
+        ><span>Magazine for City Boys<br />Independent fan project · 2026</span
+        ><a href="#home" aria-label="Back to home">Back to the desk ↑</a>
+      </footer>
     </div>
-    <dialog id="issue-dialog"><button class="close-dialog" aria-label="Close issue details">Close ×</button><div id="issue-detail"></div></dialog>
+    <dialog id="issue-dialog" aria-label="Magazine details">
+      <button class="close-dialog" aria-label="Close issue details">
+        Close ×
+      </button>
+      <div id="issue-detail"></div>
+    </dialog>
   </body>
 </html>

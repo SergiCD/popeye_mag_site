@@ -4,6 +4,13 @@
   "private": true,
   "type": "module",
   "description": "An independent POPEYE editorial scrapbook",
-  "scripts": {"dev": "node server.mjs", "start": "node server.mjs", "build": "node scripts/build.mjs", "test": "node --test"},
-  "engines": {"node": ">=22"}
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }
