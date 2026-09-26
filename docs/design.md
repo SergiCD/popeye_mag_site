@@ -12,6 +12,14 @@ Las fotografías son botones y abren un diálogo nativo. El navegador gestiona e
 
 El canvas utiliza Pointer Events y captura del puntero para que el trazo termine correctamente aunque salga del área. Se ajusta a la densidad de píxeles y conserva el dibujo al cambiar de tamaño. La función es decorativa; ninguna tarea de navegación depende de dibujar.
 
+### Detalles de interacción
+
+Los enlaces principales prescinden de flechas. Se conservan en las fichas, los enlaces editoriales externos y el regreso al escritorio, con desplazamientos pequeños al hacer hover o dar foco con teclado. Las carpetas usan los dos SVG facilitados por el usuario: la transición combina opacidad y perspectiva para sugerir su apertura. El icono de About utiliza también el SVG proporcionado.
+
+“Hello, POPEYE” usa peso 700, una ligera inclinación y un subrayado animado. El logotipo central se eleva e inclina suavemente y enlaza a About. Todos estos efectos tienen equivalente con foco visible.
+
+Clear elimina progresivamente los píxeles del dibujo durante 620 ms, con una franja que acompaña el barrido. Mientras borra, se bloquean nuevos trazos y el botón; al terminar se recupera el texto de invitación. Un cambio de tamaño durante el proceso completa el borrado. Con movimiento reducido, el borrado es inmediato.
+
 ## Responsive y contenido
 
 Por debajo de 700 px, el panel fijo se convierte en una presentación compacta. El tablero mantiene una composición propia para móvil. Los diálogos pasan a una columna. El archivo presenta las portadas completas con `object-fit: contain`; las fotografías del tablero admiten recorte para reproducir su lenguaje de collage.

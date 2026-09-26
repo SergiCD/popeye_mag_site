@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap");
 
 :root {
   font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
@@ -134,6 +134,26 @@ a:hover {
 .has-drawing .pad-hint {
   opacity: 0;
 }
+.erase-sweep {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 34px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, #fffef6b3, transparent);
+  border-right: 1px solid #87998a33;
+  opacity: 0;
+  pointer-events: none;
+}
+.is-erasing .erase-sweep {
+  opacity: 1;
+}
+.is-erasing canvas {
+  cursor: wait;
+}
+.pad-header button:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
 .sidebar-bottom {
   margin-top: auto;
   padding-top: 55px;
@@ -181,6 +201,81 @@ header nav {
 }
 nav a[aria-current] {
   color: var(--green);
+}
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+}
+.nav-icon {
+  flex: 0 0 24px;
+  overflow: visible;
+}
+.folder-icon path {
+  transform-origin: 50% 82%;
+  transition:
+    opacity 0.26s ease,
+    transform 0.38s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+.folder-open {
+  opacity: 0;
+  transform: perspective(150px) rotateX(-28deg) scaleY(0.8);
+}
+.icon-link:is(:hover, :focus-visible) .folder-closed {
+  opacity: 0;
+  transform: perspective(150px) rotateX(30deg) scaleY(0.86);
+}
+.icon-link:is(:hover, :focus-visible) .folder-open {
+  opacity: 1;
+  transform: perspective(150px) rotateX(0) scaleY(1);
+}
+.bulb-icon {
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+.icon-link:is(:hover, :focus-visible) .bulb-icon {
+  transform: rotate(-9deg);
+  filter: drop-shadow(0 0 4px #d9b75e70);
+}
+.hello-link {
+  font-weight: 700;
+  letter-spacing: -0.35px;
+  position: relative;
+}
+.hello-link span {
+  display: inline-block;
+  transition: transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hello-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: #387158;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.38s ease;
+}
+.hello-link:is(:hover, :focus-visible) span {
+  transform: translateY(-2px) rotate(-2deg);
+}
+.hello-link:is(:hover, :focus-visible)::after {
+  transform: scaleX(1);
+}
+.link-arrow {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+a:is(:hover, :focus-visible) .link-arrow,
+button:is(:hover, :focus-visible) .link-arrow {
+  transform: translate(3px, -3px);
+}
+a:is(:hover, :focus-visible) .arrow-up {
+  transform: translateY(-4px);
 }
 #content {
   outline: none;
@@ -305,6 +400,16 @@ nav a[aria-current] {
 .desk-title h1 img {
   width: 100%;
   filter: brightness(0) invert(1);
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.5s ease;
+}
+.desk-logo {
+  display: block;
+}
+.desk-logo:is(:hover, :focus-visible) img {
+  transform: translateY(-5px) rotate(-2deg) scale(1.035);
+  filter: brightness(0) invert(1) drop-shadow(0 8px 0 #102f2933);
 }
 .desk-title > span {
   font-size: 24px;
@@ -380,6 +485,11 @@ nav a[aria-current] {
   left: 50%;
   font-size: 32px;
   color: white;
+  transition: transform 0.35s ease;
+}
+.desk-arrow:is(:hover, :focus-visible) {
+  transform: translateY(5px);
+  color: #fffef3;
 }
 footer {
   padding: 40px 20px;

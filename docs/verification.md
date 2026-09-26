@@ -15,6 +15,8 @@ Revisión realizada en el navegador integrado de Codex (Chromium), con viewport 
 - Ficha: contenido del número seleccionado y cierre mediante Escape.
 - Móvil: ancho del documento igual al viewport, sin scroll horizontal.
 - Ajuste del espacio entre enlaces manuscritos y fotografías inferiores tras inspección visual.
+- Retoques de navegación: SVG de carpeta y bombilla, enlaces sin flechas y “Hello, POPEYE” en negrita.
+- Borrado: un trazo activa `is-erasing` al pulsar Clear; al terminar se muestra el bloc vacío y el botón vuelve a estar disponible.
 
 ## Comprobaciones para futuros cambios
 
