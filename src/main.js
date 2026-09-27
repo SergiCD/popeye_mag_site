@@ -9,8 +9,9 @@ const photo = (cls, image, title, issue, caption) =>
 
 function home() {
   return `<section class="desk" aria-label="POPEYE editorial desk">
-    <p id="desk-instructions" class="visually-hidden">Drag the photos to rearrange the desk. With a photo focused, use arrow keys to move it, Shift for larger steps, or Enter to open it.</p>
+    <p id="desk-instructions" class="visually-hidden">Drag the green background to move the whole desk, or drag individual photos to rearrange them. With a photo focused, use arrow keys to move it, Shift for larger steps, or Enter to open it.</p>
     <button class="reset-desk" type="button">Reset the desk</button>
+    <div class="desk-world">
     <span class="desk-edition">THE CITY BOY’S DESK — TOKYO, JAPAN</span>
     ${photo("tokyo", "issue-937.jpg", "POPEYE issue 937: Hello, Tokyo!", "937", "a day in Tokyo, 2025")}
     ${photo("travel", "issue-928.jpg", "POPEYE issue 928: tropical Asia", "928", "somewhere in Asia")}
@@ -20,6 +21,7 @@ function home() {
     <span class="desk-note">Stay curious.<br>Go outside.<br>Find your own style.</span>
     <span class="paperclip" aria-hidden="true"></span><span class="desk-bottom">GOOD DAYS START WITH A LITTLE CURIOSITY.</span>
     <a class="desk-arrow" href="#editions" aria-label="Explore the editions">↓</a>
+    </div>
   </section>`;
 }
 

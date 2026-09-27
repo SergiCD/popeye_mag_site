@@ -22,7 +22,7 @@ Para revisar el artefacto final: `SERVE_DIST=1 PORT=5178 npm start`. El servidor
 ## Qué incluye
 
 - Inicio con tablero editorial y fotografías que abren fichas de detalle.
-- Fotografías arrastrables dentro del tablero, con posiciones conservadas al navegar y botón «Reset the desk». También se mueven con las flechas del teclado (Shift para pasos mayores). La lógica vive en `src/desk.js`.
+- Fondo verde arrastrable para desplazar toda la composición y fotografías recolocables individualmente, con posiciones conservadas al navegar y botón «Reset the desk». También se mueven con las flechas del teclado (Shift para pasos mayores). La lógica vive en `src/desk.js`.
 - Archivo de seis ediciones, con filtros de moda, interiores, ciudad y viajes. La fotografía de la colección se conserva en Scrapbook.
 - Scrapbook con fotografías ampliadas y notas editoriales originales.
 - Página de contexto y enlaces al sitio oficial.

@@ -14,7 +14,7 @@ El canvas utiliza Pointer Events y captura del puntero para que el trazo termine
 
 ### Detalles de interacción
 
-Las fotografías del tablero se recolocan con Pointer Events. Un umbral de 6 px distingue arrastre de clic: arrastrar no abre la ficha; un clic normal sí. La fotografía activa queda por encima de las demás y sus coordenadas se limitan al tablero. Las posiciones se conservan en memoria al navegar y se adaptan proporcionalmente al cambiar de tamaño; se pierden al recargar o pulsar «Reset the desk». Escape cancela el arrastre en curso. Las flechas del teclado desplazan la fotografía enfocada 12 px, o 40 px con Shift. El scroll táctil sigue disponible sobre las zonas libres del tablero.
+Las fotografías del tablero se recolocan con Pointer Events. Un umbral de 6 px distingue arrastre de clic: arrastrar no abre la ficha; un clic normal sí. La fotografía activa queda por encima de las demás y sus coordenadas se limitan al tablero. Las posiciones se conservan en memoria al navegar y se adaptan proporcionalmente al cambiar de tamaño; se pierden al recargar o pulsar «Reset the desk». Escape cancela el arrastre en curso. Las flechas del teclado desplazan la fotografía enfocada 12 px, o 40 px con Shift. Las zonas libres del tablero permiten arrastrar la composición entera, incluida la cuadrícula, mediante una capa `.desk-world`. Los enlaces y botones no inician este desplazamiento. El gesto táctil sobre el tablero se reserva para arrastrar; la página puede desplazarse desde la cabecera y el resto del documento. El desplazamiento global se conserva al navegar y Reset lo devuelve a cero junto con las fotos.
 
 Las pills de filtros cambian de fondo y se elevan 2 px en hover o foco visible. El filtro seleccionado mantiene su verde más oscuro y las transiciones respetan movimiento reducido.
 
@@ -33,3 +33,5 @@ Se mantienen textos en inglés y detalles en japonés para conservar el contexto
 ## Límites deliberados
 
 No hay backend, analítica, cuenta de usuario ni tienda. Los enlaces a la revista abren su sitio oficial. La build funciona en la raíz del alojamiento; para servirla en un subdirectorio hay que adaptar las rutas absolutas de recursos. La fidelidad del movimiento está limitada a las interacciones observadas, sin atribuir al original animaciones que no se verificaron.
+
+El logo central ocupa el 72 % de su contenedor (78 % en móvil). Las tarjetas superiores tienen un margen positivo respecto al borde, también en móvil, para que no aparezcan cortadas en la composición inicial.

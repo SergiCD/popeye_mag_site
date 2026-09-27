@@ -30,3 +30,6 @@ Revisión realizada en el navegador integrado de Codex (Chromium), con viewport 
 6. Generar `dist/` y servirlo con `SERVE_DIST=1` antes de publicar.
 
 No se ha verificado en dispositivos físicos, Safari o Firefox. No se afirma equivalencia píxel a píxel ni se ha publicado un dominio de producción.
+
+- Desplazamiento global: arrastre del fondo de 90 × 70 px; `.desk-world` y la posición de la cuadrícula reciben el mismo desplazamiento. Reset devuelve ambos al origen.
+- Encuadre corregido: revisión visual en escritorio y a 390 × 844, con logo reducido y tarjetas superiores completas.

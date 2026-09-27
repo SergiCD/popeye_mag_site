@@ -1,13 +1,71 @@
 // Keep the arrangement while navigating, without storing anything remotely.
 const positions = new Map();
+const pan = { x: 0, y: 0 };
 
 export function mountDesk(desk) {
   if (!desk) return () => {};
   const cards = [...desk.querySelectorAll(".polaroid")];
+  const world = desk.querySelector(".desk-world");
   const abort = new AbortController();
   const options = { signal: abort.signal };
   let drag = null;
   let layer = 4;
+  let panning = null;
+
+  function paintPan() {
+    world.style.transform = `translate(${pan.x}px, ${pan.y}px)`;
+    desk.style.backgroundPosition = `${pan.x}px ${pan.y}px`;
+  }
+  function finishPan(cancelled = false) {
+    if (!panning) return;
+    const previous = panning;
+    panning = null;
+    if (cancelled) {
+      pan.x = previous.x;
+      pan.y = previous.y;
+      paintPan();
+    }
+    desk.classList.remove("is-panning");
+    if (desk.hasPointerCapture(previous.pointerId))
+      desk.releasePointerCapture(previous.pointerId);
+  }
+  desk.addEventListener(
+    "pointerdown",
+    (event) => {
+      if (
+        event.button !== 0 ||
+        !event.isPrimary ||
+        drag ||
+        event.target.closest("a, button")
+      )
+        return;
+      panning = {
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+        x: pan.x,
+        y: pan.y,
+      };
+      desk.setPointerCapture(event.pointerId);
+    },
+    options,
+  );
+  desk.addEventListener(
+    "pointermove",
+    (event) => {
+      if (!panning || panning.pointerId !== event.pointerId) return;
+      event.preventDefault();
+      pan.x = panning.x + event.clientX - panning.startX;
+      pan.y = panning.y + event.clientY - panning.startY;
+      desk.classList.add("is-panning");
+      paintPan();
+    },
+    options,
+  );
+  desk.addEventListener("pointerup", () => finishPan(), options);
+  desk.addEventListener("pointercancel", () => finishPan(true), options);
+  desk.addEventListener("lostpointercapture", () => finishPan(), options);
+  paintPan();
 
   function place(card, x, y) {
     const maxX = Math.max(0, desk.clientWidth - card.offsetWidth);
@@ -135,6 +193,7 @@ export function mountDesk(desk) {
     "keydown",
     (event) => {
       if (event.key === "Escape" && drag) finish(true);
+      if (event.key === "Escape" && panning) finishPan(true);
     },
     options,
   );
@@ -142,6 +201,10 @@ export function mountDesk(desk) {
     "click",
     () => {
       finish();
+      finishPan();
+      pan.x = 0;
+      pan.y = 0;
+      paintPan();
       positions.clear();
       cards.forEach((card) => card.removeAttribute("style"));
     },
@@ -149,12 +212,14 @@ export function mountDesk(desk) {
   );
   const observer = new ResizeObserver(() => {
     finish();
+    finishPan();
     restore();
   });
   observer.observe(desk);
   restore();
   return () => {
     finish();
+    finishPan();
     abort.abort();
     observer.disconnect();
   };

@@ -377,7 +377,7 @@ a:is(:hover, :focus-visible) .arrow-up {
 }
 .tokyo {
   left: 6.5%;
-  top: -20px;
+  top: 24px;
   transform: rotate(-4deg);
   width: 22%;
 }
@@ -387,7 +387,7 @@ a:is(:hover, :focus-visible) .arrow-up {
 }
 .travel {
   right: 2.5%;
-  top: -38px;
+  top: 24px;
   transform: rotate(2deg);
   width: 22%;
 }
@@ -855,7 +855,7 @@ dialog::backdrop {
   .tokyo {
     left: 5%;
     width: 32%;
-    top: -5px;
+    top: 20px;
   }
   .tokyo img {
     height: 178px;
@@ -863,7 +863,7 @@ dialog::backdrop {
   .travel {
     width: 31%;
     right: 4%;
-    top: -14px;
+    top: 20px;
   }
   .travel img {
     height: 191px;
@@ -1034,5 +1034,42 @@ body:has(dialog[open]) {
 @media (max-width: 700px) {
   .scrapbook .card-image {
     height: 380px;
+  }
+}
+
+/* The viewport stays still while the desk and its grid move together. */
+.desk {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.desk-world {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.desk.is-panning,
+.desk.is-panning .desk-world {
+  cursor: grabbing;
+}
+.desk.is-panning .desk-world {
+  pointer-events: none;
+}
+.desk-title {
+  top: 36%;
+}
+.desk-title h1 {
+  width: 72%;
+  margin-inline: auto;
+}
+.reset-desk {
+  z-index: 100;
+}
+@media (max-width: 700px) {
+  .desk-title {
+    top: 34%;
+  }
+  .desk-title h1 {
+    width: 78%;
   }
 }
